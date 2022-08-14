@@ -18,7 +18,7 @@ except ImportError:
 try:
     import rich
 except ImportError:
-    os.system('pip install rich' if os.name == 'nt' else 'pip2 install rich')
+    os.system('pip install rich' if os.name == 'nt' else 'pip install rich')
 
 import requests, re, os, random, sys,bs4,time,json
 from bs4 import BeautifulSoup as parser
@@ -82,7 +82,7 @@ try:
 	prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=100000&country=all&ssl=all&anonymity=all').text
 	open('.prox.txt','w').write(prox)
 except Exception as e:
-	print('[[\x1b[1;92mâ€¢\x1b[1;97m] [\x1b[1;96mCluuuut')
+	print('* \033[0m[\033[1;96mCluuuut\033[0m]')
 prox=open('.prox.txt','r').read().splitlines()
 
 
